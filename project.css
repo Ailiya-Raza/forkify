@@ -1,0 +1,58 @@
+body{
+    background-image: url("https://www.healthyfoodguide.com.au/sites/default/files/Tips-for-a-healthier-bbq-iStock-485587048.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.container{
+    padding: 3%;
+    text-align: center;
+}
+
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+ 
+#custom-search-input .search-query {
+    width:100%;
+    padding-right: 3px;
+    padding-left: 15px;
+    margin-bottom: 0;
+    border-radius: 50px;
+}
+ 
+#custom-search-input button {
+    border: 0;
+    background: none;
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: absolute;
+    right:0;
+    margin-bottom: 0;
+    border-radius: 3px;
+    color:#D9230F;
+    cursor: unset;
+    z-index: 2;
+}
+ 
+.search-query:focus{
+    z-index: 0;   
+}
+
+
+.fa-search {
+    color: #0097A7;
+}
+
+.recipe-block {
+    display: block;
+    padding: 10px 0 30px;
+    border-bottom:1px solid #ccc;
+    margin:0 0 20px;
+}
+
+.testimonial-content h3{
+    margin-top:0px; color:#444;
+}
