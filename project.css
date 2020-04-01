@@ -1,8 +1,8 @@
-body{
+/*body{
     background-image: url("https://www.healthyfoodguide.com.au/sites/default/files/Tips-for-a-healthier-bbq-iStock-485587048.jpg");
     background-repeat: no-repeat;
     background-size: cover; 
-}
+}*/
 
 .container{
     padding: 3%;
@@ -25,7 +25,7 @@ body{
  
 #custom-search-input button {
     border: 0;
-    background: none;
+    background: black;
     padding: 2px 5px;
     margin-top: 2px;
     position: absolute;
@@ -56,3 +56,25 @@ body{
 .testimonial-content h3{
     margin-top:0px; color:#444;
 }
+
+/* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pa {
+    list-style-type: none;
+    display: inline;
+}
+/* Style the active/current link */
+.pa .active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pa li:hover: {background-color: #ddd;}
