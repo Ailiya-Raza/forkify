@@ -42,10 +42,6 @@ export const renderRecipe = (e) => {
 	$(`${m}`).insertAfter(".results__list" );
 }
 
-export var pages =[]; 
-var show = [];
-	var start=0;
-	var end=4;
 
 
 export const renderPages = (e) => {
@@ -63,14 +59,13 @@ export const renderPages = (e) => {
 	}
 	//p+='<li id="p">&raquo;</li>';
 	$( `${p}` ).insertBefore(".pagination" );
-	//check(e);
-	var targetSpans = document.querySelectorAll (".pa");
-	for (var J in targetSpans) {
-    targetSpans[J].addEventListener ("click", check, false);
+	check(e);
+	// var targetSpans = document.querySelectorAll (".pa");
+	// for (var J in targetSpans) {
+ //    targetSpans[J].addEventListener ("click", check, false);}
 
 
 }
-
 
 export const check = (e) => {
 	$(".pa").click(function() {
@@ -79,6 +74,4 @@ export const check = (e) => {
 	e.forEach(renderRecipe);
 });
 }
-
-
 

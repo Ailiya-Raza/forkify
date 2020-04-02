@@ -4,8 +4,8 @@ import * as page from './views/pagination';
 import { elements} from "./views/base";
 const state = {};
 function myFunction(item, index) {
-	//searchView.renderRecipe(item);
-	//searchView.renderPages(item, index);
+  //searchView.renderRecipe(item);
+  //searchView.renderPages(item, index);
 }
 
 const controlSearch = async () => {
