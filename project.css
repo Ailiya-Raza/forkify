@@ -8,7 +8,6 @@
     padding: 3%;
     text-align: center;
 }
-
 #custom-search-input {
     margin:0;
     margin-top: 10px;
@@ -25,7 +24,7 @@
  
 #custom-search-input button {
     border: 0;
-    background: black;
+    background: none;
     padding: 2px 5px;
     margin-top: 2px;
     position: absolute;
@@ -78,3 +77,16 @@
 
 /* Add a grey background color on mouse-over */
 .pa li:hover: {background-color: #ddd;}
+
+.recipeList{
+    list-style-type: none;
+}
+
+.result{
+    display: inline;
+
+}
+
+.search{
+    display: inline;
+}
