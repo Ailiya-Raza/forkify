@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --exec babel-node ./index.js"
+    "start": "webpack --exec  babel-node ./index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "axios": "^0.19.2",
     "development": "0.0.6",
     "jquery": "^3.4.1",
+    "nodemon": "^2.0.2",
     "paginationjs": "^2.1.5",
     "webpack-cli": "^3.3.11"
   }

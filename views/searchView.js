@@ -1,4 +1,5 @@
 import { elements } from "./base";
+import * as recipeView from './recipeView';
 
 export const getInput = () => elements.searchInput.value;
 
@@ -34,20 +35,18 @@ export const renderRecipe = (e) => {
 	//console.log(e);
 	if ( e != undefined){
 		var title= titleLength(e.title);
-	const m =`
-                <li class="recipeList">
-                    <a class="results__link results__link--active" href="#23456">
+	const m =`  <li class="recipeList">
+                    <a class="results__link results__link--active" href="#${e.recipe_id}">
                         <div class="result">
                          <img class="rounded-circle" height="70px" width="70px" src="${e.image_url}" alt="Test">
-                            <h4 class="results__data">${title}</h4>
+                            <h4 class="results__data" onclick="${recipeView.viewRecipe(e.recipe_id)}">${title}</h4>
                         </div>
                         <p class="results__author">${e.publisher}</p>
                     </a>
                 </li>
              `
-
-
 	$(`${m}`).insertAfter(".results__list" );
+	 recipeView.viewRecipe(e);
 }
 }
 
@@ -58,53 +57,7 @@ export const renderPages = (e) => {
 	var i=Math.ceil(e.length/5);
 	console.log(i);
 	return i;
-// 	var x=1;
-// 	 var p='';
-// 	 var v=-0;
-// 	while (i>=x+1){
-// 		p+=`<li value="${v}" class="pa" > ${x}</li>`;
-// 		//document.getElementsByClassName (".pa")[i].addEventListener ("click", check(e));
-// 		v+=1;
-// 		x+=1;
-// 	}
-// 	//p+='<li id="p">&raquo;</li>';
-// 	$( `${p}` ).insertBefore(".pagination" );
-// 	check(e);
-// 	var targetSpans = document.querySelectorAll (".pa");
-// 	for (var J in targetSpans) {
-//     targetSpans[J].addEventListener ("click", check, false);}
-
-
-// }
-
-// const check = function(e) {
-// 	$(".pa").click(function() {
-//     var i=this.value;
-//    	e=e.slice(i*5,i*5+5);
-//    	console.log(e)
-// 	e.forEach(renderRecipe);
-// });
 }
-
-// export const paging = (e) => {
-// 	elements.page.pagination({
-//     dataSource: [1, 2, 3, 4, 5, 6],
-//     pageSize: 5,
-//     showGoInput: true,
-//     showGoButton: true,
-//     // callback: function(data, pagination) {
-//     //     // template method of yourself
-//     //     var html = checking();
-//     //     dataContainer.html(html);
-//     // }
-
-//   onPageClick: function (event, page) {
-//     console.log("pagination checking");
-//   },
-// })
-
-// } 
-
 
 
 export function Pagination(pageEleArr, itemsPerPage) {
@@ -112,25 +65,6 @@ export function Pagination(pageEleArr, itemsPerPage) {
     this.itemsPerPage = itemsPerPage;
     this.elementCount = this.pageEleArr.length;
     this.numOfPages = Math.ceil(this.elementCount / this.itemsPerPage);
-
-
- //        		var x=1;
-	//  var p='';
-	//  var v=-0;
-	// while (this.numOfPages>=x+1){
-	// 	p+=`<li value="${v}" class="pa"> ${x}</li>`;
-		
-	// 	v+=1;
-	// 	x+=1;
-	// }
-	// $( `${p}` ).insertBefore(".pagination" );
-	// var nodes=$('.pa'); 
-	// for (var i = 0; i < nodes.length; i++) {
-	//   nodes[i].addEventListener ("click", check(pageEleArr));
-	// }
-	// // $(".pa")[1].addEventListener ("click", check(pageEleArr));
-
-
     const pageElementsArr = function (arr, eleDispCount) {
         const arrLen = arr.length;
         const noOfPages = Math.ceil(arrLen / eleDispCount);
