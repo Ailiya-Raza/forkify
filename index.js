@@ -1,4 +1,5 @@
 import Search from "./model/Search.js";
+import Recipe from "./model/Recipe.js";
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import { elements} from "./views/base";
@@ -50,3 +51,34 @@ $(".pa").empty();
   e.preventDefault();
 });
 console.log('hi');
+
+const recipeController = async () => {
+  console.log("Entered Controller");
+
+  var uri = window.location.hash.replace('#', '');
+  // console.log(uri);
+  const recipe_title = decodeURI(uri);
+  // console.log(recipe_title);
+  if (recipe_title) {
+  // // console.log("if");
+  // //   recipeView.clearRecipe();
+     
+    state.recipe = new Recipe(recipe_title);
+  // // console.log(state.recipe);
+
+
+    try {
+         await state.recipe.getRecipe(recipe_title);
+         console.log(state.recipe);
+  //   //      // recipeView.displayRecipe(state.recipe);
+    }
+
+    catch(error) {
+      alert("There was an error loading the recipe");
+    }
+  }
+};
+
+window.addEventListener('hashchange', e => {
+  recipeController();
+});
