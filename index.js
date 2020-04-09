@@ -1,7 +1,9 @@
 import Search from "./model/Search.js";
 import Recipe from "./model/Recipe.js";
+import Likes from "./model/Likes.js";
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
+import * as likesView from './views/likesView';
 import { elements } from "./views/base";
 const state = {};
 
@@ -85,12 +87,44 @@ window.addEventListener('hashchange', e => {
 
 const likeController = () => {
 	console.log("Entered like controller");
+	if (!state.likes) {
+		state.likes = new Likes();
+	}
+
+	const current = state.recipe.id;
+
+	if (!state.likes.liked(current)) {
+		// console.log('hello');
+		state.likes.delLike(current);
+		likesView.removeLike(current);
+
+	}
+
+	else {
+		const title = state.recipe.title;
+		const publisher = state.recipe.publisher;
+		const image = state.recipe.image;
+
+		const newLike = state.likes.addLike(current, title, publisher, image);
+		// console.log(newLike);
+		likesView.likeDisplay(newLike);
+	}
+
 };
 
 elements.recipe.addEventListener('click', e =>{
 	console.log("entered event listener");
 	if (e.target.matches('.fa-heart')) {
 		likeController();
-		console.log("ha");
+		// console.log("ha");
 	}	
+});
+
+window.addEventListener('load', () => {
+	state.likes = new Likes();
+	// console.log("before");
+	// console.log(state.likes);
+	state.likes.reload();
+	console.log("after");
+	state.likes.likes.forEach(like => likesView.likeDisplay(like));
 });

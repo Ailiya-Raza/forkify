@@ -123,3 +123,45 @@
     text-align: justify;
     font-size: 18px;
 }
+.likes {
+    position: relative;
+/*    align-self: stretch;
+    padding: 0 !important;*/
+}
+
+.likes__field {
+    cursor: pointer;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: all .3s;
+}
+    
+.likes__panel:hover, .likes__field:hover + .likes__panel {
+    visibility: visible;
+    opacity: 1; 
+}
+.likes__icon {
+    /*fill: #F59A83;*/
+    height: 3.75rem;
+    width: 3.75rem;
+}
+.likes__panel {
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+    z-index: 10;
+    padding: 2rem 0;
+    width: 20rem;
+    visibility: hidden;
+    opacity: 0;
+    color: #00ACC1;
+    transition: all .5s .2s; 
+    background-color: white;
+}
+
+.liked_image {
+    width: 200px;
+    height: 100px;
+}

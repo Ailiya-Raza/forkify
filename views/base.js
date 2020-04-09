@@ -5,6 +5,6 @@ export const elements={
 	searchRecipe:document.querySelector(".results__list"),
 	searchPage:document.querySelector('.page'),
 	paginating:document.querySelector('#pagination-demo'),
-	recipe:document.querySelector('.recipe')
-	// like: document.querySelector('.recipe_like'
+	recipe:document.querySelector('.recipe'),
+	likesList: document.querySelector('.likes__list')
  }; 
