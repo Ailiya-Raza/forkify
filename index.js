@@ -2,7 +2,7 @@ import Search from "./model/Search.js";
 import Recipe from "./model/Recipe.js";
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
-import { elements} from "./views/base";
+import { elements } from "./views/base";
 const state = {};
 
 
@@ -52,25 +52,24 @@ $(".pa").empty();
 });
 console.log('hi');
 
+
 const recipeController = async () => {
   console.log("Entered Controller");
 
-  var uri = window.location.hash.replace('#', '');
+  var recipe_id = window.location.hash.replace('#', '');
   // console.log(uri);
-  const recipe_title = decodeURI(uri);
+  // const recipe_title = decodeURI(uri);
   // console.log(recipe_title);
-  if (recipe_title) {
+  if (recipe_id) {
   // // console.log("if");
-  // //   recipeView.clearRecipe();
      
-    state.recipe = new Recipe(recipe_title);
+    state.recipe = new Recipe(recipe_id);
   // // console.log(state.recipe);
 
-
     try {
-         await state.recipe.getRecipe(recipe_title);
+         await state.recipe.getRecipe(recipe_id);
          console.log(state.recipe);
-  //   //      // recipeView.displayRecipe(state.recipe);
+         recipeView.displayRecipe(state.recipe);
     }
 
     catch(error) {
@@ -81,4 +80,17 @@ const recipeController = async () => {
 
 window.addEventListener('hashchange', e => {
   recipeController();
+});
+
+
+const likeController = () => {
+	console.log("Entered like controller");
+};
+
+elements.recipe.addEventListener('click', e =>{
+	console.log("entered event listener");
+	if (e.target.matches('.fa-heart')) {
+		likeController();
+		console.log("ha");
+	}	
 });

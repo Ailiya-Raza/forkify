@@ -8,55 +8,56 @@ export const clearInput = () => {
 };
 
 export const renderImage = (url) => {
-	elements.searchImage.src=url;
-	console.log("changing");
+    elements.searchImage.src=url;
+    console.log("changing");
 
 }
 
 export const renderPublisher = (pub) => {
-	elements.searchPublisher.innerHTML=pub;
-	console.log("changing pub");
+    elements.searchPublisher.innerHTML=pub;
+    console.log("changing pub");
 }
 
 export const renderTitle = (title) => {
-	elements.searchTitle.innerHTML=title;
-	console.log("changing title");
+    elements.searchTitle.innerHTML=title;
+    console.log("changing title");
 }
 
 export const titleLength = (e) => {
-	var splitTitle=e.split(' ');
-		if (splitTitle.length > 2) {
-			var y = splitTitle.slice(0,2).join(' ');
-			return `${y}..`;
-		}
-		else return e;
+    var splitTitle=e.split(' ');
+        if (splitTitle.length > 2) {
+            var y = splitTitle.slice(0,2).join(' ');
+            return `${y}..`;
+        }
+        else return e;
 }
 export const renderRecipe = (e) => {
-	//console.log(e);
-	if ( e != undefined){
-		var title= titleLength(e.title);
-	const m =`  <li class="recipeList">
+    //console.log(e);
+    if ( e != undefined){
+        var title= titleLength(e.title);
+    const m =`  <li class="recipeList">
                     <a class="results__link results__link--active" href="#${e.recipe_id}">
                         <div class="result">
                          <img class="rounded-circle" height="70px" width="70px" src="${e.image_url}" alt="Test">
-                            <h4 class="results__data" onclick="${recipeView.viewRecipe(e.recipe_id)}">${title}</h4>
+                            <h4 class="results__data" >${title}</h4>
                         </div>
                         <p class="results__author">${e.publisher}</p>
+                        <button class = view__recipe><i class="fas fa-plus"></i></button>
                     </a>
                 </li>
              `
-	$(`${m}`).insertAfter(".results__list" );
-	 recipeView.viewRecipe(e);
+    $(`${m}`).insertAfter(".results__list" );
+    // recipeView.displayRecipe(e);
 }
 }
 
 
 
 export const renderPages = (e) => {
-	
-	var i=Math.ceil(e.length/5);
-	console.log(i);
-	return i;
+    
+    var i=Math.ceil(e.length/5);
+    console.log(i);
+    return i;
 }
 
 
@@ -117,4 +118,3 @@ this.display = function (pageNo) {
     }
  }
 }
-
