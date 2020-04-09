@@ -1,19 +1,23 @@
 import axios from 'axios'
 
 export default class Recipe {
-    constructor(title){
-        this.title = title;
+    constructor(id){
+        this.id = id;
     }
 
     async getRecipe(e) {
-
+        // console.log(e);
         try {
-            const res = await axios (`https://forkify-api.herokuapp.com/api/search?q=${e}`);
-            this.id = res.recipe_id;
-            this.title = res.title;
-            this.publisher = res.publisher;
-            this.image = res.image_url;
-            this.url = res.source_url;
+            // console.log(`https://forkify-api.herokuapp.com/api/get?rId=${e}`);
+            const res = await axios (`https://forkify-api.herokuapp.com/api/get?rId=${e}`);
+            // console.log(res);
+            // console.log(res.data.recipe);
+            this.title = res.data.recipe.title;
+            this.publisher = res.data.recipe.publisher;
+            this.image = res.data.recipe.image_url;
+            this.url = res.data.recipe.source_url;
+            this.ingredients = res.data.recipe.ingredients;
+            // console.log(res);
     }
 
         catch(error) {

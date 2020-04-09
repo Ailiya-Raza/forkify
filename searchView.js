@@ -36,10 +36,10 @@ export const renderRecipe = (e) => {
     if ( e != undefined){
         var title= titleLength(e.title);
     const m =`  <li class="recipeList">
-                    <a class="results__link results__link--active" href="#${e.title}">
+                    <a class="results__link results__link--active" href="#${e.recipe_id}">
                         <div class="result">
                          <img class="rounded-circle" height="70px" width="70px" src="${e.image_url}" alt="Test">
-                            <h4 class="results__data" onclick="${recipeView.displayRecipe(e.recipe_id)}">${title}</h4>
+                            <h4 class="results__data" >${title}</h4>
                         </div>
                         <p class="results__author">${e.publisher}</p>
                         <button class = view__recipe><i class="fas fa-plus"></i></button>
@@ -47,7 +47,7 @@ export const renderRecipe = (e) => {
                 </li>
              `
     $(`${m}`).insertAfter(".results__list" );
-    recipeView.displayRecipe(e);
+    // recipeView.displayRecipe(e);
 }
 }
 
