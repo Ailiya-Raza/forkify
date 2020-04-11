@@ -41,9 +41,9 @@
 }
 
 
-.fa-search {
+/*.fa-search {
     color: #0097A7;
-}
+}*/
 
 .recipe-block {
     display: block;
@@ -87,10 +87,10 @@
 
 }
 
-.search{
+/*.search{
     display: inline;
 }
-
+*/
 .view__recipe  {
     border-radius: 50%;
     border: none;
@@ -123,11 +123,11 @@
     text-align: justify;
     font-size: 18px;
 }
-.likes {
+/*.likes {
     position: relative;
-/*    align-self: stretch;
-    padding: 0 !important;*/
-}
+    align-self: stretch;
+    padding: 0 !important;
+}*/
 
 .likes__field {
     cursor: pointer;
@@ -143,9 +143,11 @@
     opacity: 1; 
 }
 .likes__icon {
-    /*fill: #F59A83;*/
-    height: 3.75rem;
-    width: 3.75rem;
+    background-color: transparent;
+    color: white;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
 }
 .likes__panel {
     position: absolute;
@@ -164,4 +166,8 @@
 .liked_image {
     width: 200px;
     height: 100px;
+}
+
+.sh{
+    background-color: #2193b0;
 }

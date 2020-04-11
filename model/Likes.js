@@ -26,13 +26,17 @@ export default class Likes {
 
 	liked(curr) {
 		const store = JSON.parse(localStorage.getItem('likes'));
+		// console.log("hello");
+		var flag = true;
+		console.log(store);
 		store.forEach(e =>  {
-			// console.log(e.id);
+			console.log(e.id);
 			if (curr === e.id) {
 				console.log("already liked");
-				return false;
-			 }
-			});
+				flag = false;
+			}
+		});
+		return flag;
 	}
 
 	delLike(id) {

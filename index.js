@@ -10,6 +10,7 @@ const state = {};
 
 const controlSearch = async () => {
   // 1) Get query from the view
+  console.log("in search controller");
   const query ='pizza';
   $(".recipeList").empty(); 
 
@@ -48,12 +49,13 @@ const controlSearch = async () => {
 };
 
 elements.searchForm.addEventListener("submit", e => {
-$(".pa").empty();
-  controlSearch();
-  e.preventDefault();
+    console.log("listening");
+    $(".pa").empty();
+    controlSearch();
+    e.preventDefault();
 });
-console.log('hi');
 
+console.log('hi');
 
 const recipeController = async () => {
   console.log("Entered Controller");
@@ -92,6 +94,8 @@ const likeController = () => {
 	}
 
 	const current = state.recipe.id;
+  	const c = state.likes.liked(current);
+  	console.log(state.likes.liked(current));
 
 	if (!state.likes.liked(current)) {
 		// console.log('hello');
