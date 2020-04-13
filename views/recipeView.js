@@ -1,10 +1,8 @@
 import { elements } from './base';
 
 export const displayRecipe = (recipe) => {
-    console.log(recipe);
     if ( recipe != undefined ){
         elements.recipe.innerHTML = '';
-        console.log("entered");
         const m = `
                 <div class='container'>
                     <div class='recipe-card'>
@@ -22,11 +20,14 @@ export const displayRecipe = (recipe) => {
                                     <i class="fas fa-heart"></i>
                                 </button>
 
-                                <h2> Ingredients </h2>
+                                <h2> Ingredients <button class="add_list">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button></h2>
                                 <div class="recipe_ingredients">
                                     <ul class="recipe_ingredient-list">
                                         ${recipe.ingredients}
                                     </ul>
+                                    
                                 </div>
                             </div>
 
