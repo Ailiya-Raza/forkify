@@ -1,9 +1,6 @@
-/*body{
-    background-image: url("https://www.healthyfoodguide.com.au/sites/default/files/Tips-for-a-healthier-bbq-iStock-485587048.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; 
-}*/
-
+div.shop__list {
+  text-align: center;
+}
 .container{
     padding: 3%;
     text-align: center;
