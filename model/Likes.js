@@ -14,11 +14,9 @@ export default class Likes {
 
 	storeLike() {
 		localStorage.setItem('likes', JSON.stringify(this.likes));
-		// console.log(localStorage.getItem('likes_list'));
 	}
 
 	reload() {
-		console.log('in reload');
 		console.log(localStorage.getItem('likes'));
 		const store = JSON.parse(localStorage.getItem('likes'));
 		if (store) {this.likes = store;}
@@ -26,7 +24,6 @@ export default class Likes {
 
 	liked(curr) {
 		const store = JSON.parse(localStorage.getItem('likes'));
-		// console.log("hello");
 		var flag = true;
 		console.log(store);
 		store.forEach(e =>  {
