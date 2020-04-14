@@ -14,6 +14,8 @@ export const displayRecipe = (recipe) => {
 
                         <div class='recipe_content'>
                             <div class ='recipe_info'>
+                                <i class="fas fa-users"> 4 servings </i>
+                                <br>
                                 
                                 <button class="recipe_like">
                                     <i class="fas fa-heart"></i>
