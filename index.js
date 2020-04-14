@@ -71,6 +71,7 @@ const recipeController = async () => {
     try {
          await state.recipe.getRecipe(recipe_id);
          recipeView.displayRecipe(state.recipe);
+         state.recipe.parseIngredients();
     }
 
     catch(error) {
@@ -83,16 +84,18 @@ window.addEventListener('hashchange', e => {
   elements.s_list.innerHTML = '';
   recipeController();
 });
-
+let serve = 1;
 const listController = async () => {
   if (!state.list) {
     state.list = new List();
   }
+  const s =serve *4;
+   elements.s_list.innerHTML = `<h4><i class="fas fa-users"> ${s} servings</i></h4><button class="add_list"><i class="fas fa-plus"></i></button><button class="min_list"><i class="fas fa-minus"></i></button><br>`;
   const ing = state.recipe.ingredients;
   ing.forEach(el => {
-        console.log(el);
-        const item = state.list.addItem( el);
-        listView.displayItem(el);
+  		const c = el.count*serve;
+        const item = state.list.addItem(c, el.unit, el.ingredient);
+        listView.displayItem(item);
     });
 }
   /**elements.shopping.addEventListener('click', e => {
@@ -142,6 +145,7 @@ const likeController = () => {
 
 };
 
+
 elements.recipe.addEventListener('click', e =>{
 	console.log("entered event listener");
 	if (e.target.matches('.fa-heart')) {
@@ -151,8 +155,27 @@ elements.recipe.addEventListener('click', e =>{
 elements.recipe.addEventListener('click', e =>{
   console.log("entered list listener");
   if (e.target.matches('.fa-shopping-cart')) {
-    elements.s_list.innerHTML = '';
+   
+
     listController();
+  } 
+});
+
+elements.s_list.addEventListener('click', e =>{
+  if (e.target.matches('.fa-plus')) {
+
+    document.querySelector('.fa-users').innerHTML = '';
+    serve += 1;
+    listController();
+  } 
+});
+elements.s_list.addEventListener('click', e =>{
+  if (e.target.matches('.fa-minus')) {
+  	if(serve>0){
+  		document.querySelector('.fa-users').innerHTML = '';
+  		serve -= 1;
+  		listController();
+  	}
   } 
 });
 
@@ -160,6 +183,5 @@ elements.recipe.addEventListener('click', e =>{
 window.addEventListener('load', () => {
 	state.likes = new Likes();
 	state.likes.reload();
-	console.log("after");
 	state.likes.likes.forEach(like => likesView.likeDisplay(like));
 });
