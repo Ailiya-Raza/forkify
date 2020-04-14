@@ -98,24 +98,6 @@ const listController = async () => {
         listView.displayItem(item);
     });
 }
-  /**elements.shopping.addEventListener('click', e => {
-    const id = e.target.closest('.shopping__item').dataset.itemid;
-
-    // Handle the delete button
-    if (e.target.matches('.shopping__delete, .shopping__delete *')) {
-        // Delete from state
-        state.list.deleteItem(id);
-
-        // Delete from UI
-        listView.deleteItem(id);
-
-    // Handle the count update
-    } else if (e.target.matches('.shopping__count-value')) {
-        const val = parseFloat(e.target.value, 10);
-        state.list.updateCount(id, val);
-    }
-
-});*/
 
 const likeController = () => {
 	console.log("Entered like controller");
@@ -164,7 +146,7 @@ elements.recipe.addEventListener('click', e =>{
 elements.s_list.addEventListener('click', e =>{
   if (e.target.matches('.fa-plus')) {
 
-    document.querySelector('.fa-users').innerHTML = '';
+    //document.querySelector('.fa-users').innerHTML = '';
     serve += 1;
     listController();
   } 
@@ -172,7 +154,7 @@ elements.s_list.addEventListener('click', e =>{
 elements.s_list.addEventListener('click', e =>{
   if (e.target.matches('.fa-minus')) {
   	if(serve>0){
-  		document.querySelector('.fa-users').innerHTML = '';
+  		//document.querySelector('.fa-users').innerHTML = '';
   		serve -= 1;
   		listController();
   	}
