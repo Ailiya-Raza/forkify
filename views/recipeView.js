@@ -14,8 +14,7 @@ export const displayRecipe = (recipe) => {
 
                         <div class='recipe_content'>
                             <div class ='recipe_info'>
-                                <i class="fas fa-users"> 4 servings </i>
-                                <br>
+                                
                                 <button class="recipe_like">
                                     <i class="fas fa-heart"></i>
                                 </button>
@@ -23,12 +22,14 @@ export const displayRecipe = (recipe) => {
                                 <h2> Ingredients <button class="add_list">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button></h2>
-                                <div class="recipe_ingredients">
-                                    <ul class="recipe_ingredient-list">
+                                
+                                <div class="recipe_instructions">
+                                    <span>
                                         ${recipe.ingredients}
-                                    </ul>
+                                    </span>
                                     
                                 </div>
+
                             </div>
 
                             <h1 class="heading-2">How to cook it?</h1>
